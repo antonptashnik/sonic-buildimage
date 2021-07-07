@@ -11,6 +11,7 @@ include $(PLATFORM_PATH)/one-aboot.mk
 include $(PLATFORM_PATH)/one-image.mk
 include $(PLATFORM_PATH)/libsaithrift-dev.mk
 include $(PLATFORM_PATH)/bfn-platform.mk
+include $(PLATFORM_PATH)/docker-ptf.mk
 #include $(PLATFORM_PATH)/bfn-platform-wnc.mk
 #include $(PLATFORM_PATH)/bfn-platform-ingrasys.mk
 include $(PLATFORM_PATH)/bfn-modules.mk
@@ -24,7 +25,8 @@ $(SYNCD)_DEPENDS += $(BFN_SAI) $(BFN_INGRASYS_PLATFORM) $(BFN_PLATFORM)
 $(SYNCD)_UNINSTALLS += $(BFN_SAI)
 
 ifeq ($(ENABLE_SYNCD_RPC),y)
-$(SYNCD)_DEPENDS += $(LIBSAITHRIFT_DEV)
+$(SYNCD)_DEPENDS := $(filter-out $(LIBTHRIFT_DEV),$($(SYNCD)_DEPENDS))
+$(SYNCD)_DEPENDS += $(LIBSAITHRIFT_DEV) $(BFN_LIBTHRIFT_DEV)
 endif
 
 # Runtime dependency on sai is set only for syncd

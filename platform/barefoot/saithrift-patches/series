@@ -1,0 +1,3 @@
+0001-Replace-unions-with-structs-in-thrift.patch
+0002-Use-std-shared_ptr-instead-of-boost.patch
+0003-include-algorithm.patch
