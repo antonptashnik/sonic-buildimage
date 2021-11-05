@@ -1,0 +1,25 @@
+From 18589cf200ab4789f41a2caab03f3f913229a573 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Wed, 14 Jul 2021 14:26:13 +0000
+Subject: [PATCH 2/3] Use std::shared_ptr instead of boost
+
+---
+ test/saithrift/src/switch_sai_rpc_server.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/saithrift/src/switch_sai_rpc_server.cpp b/test/saithrift/src/switch_sai_rpc_server.cpp
+index 0df9b3d..e990c50 100644
+--- a/test/saithrift/src/switch_sai_rpc_server.cpp
++++ b/test/saithrift/src/switch_sai_rpc_server.cpp
+@@ -74,7 +74,7 @@ using namespace ::apache::thrift::protocol;
+ using namespace ::apache::thrift::transport;
+ using namespace ::apache::thrift::server;
+ 
+-using boost::shared_ptr;
++using std::shared_ptr;
+ 
+ using namespace ::switch_sai;
+ 
+-- 
+2.17.1
+
